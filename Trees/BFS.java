@@ -15,6 +15,66 @@ public class BFS {
 
     TreeNode root;
 
+    public List<List<Integer>> zigzagTraversal(TreeNode root){
+        List<List<Integer>> result = new ArrayList<>();
+
+        Queue<TreeNode> queue = new LinkedList<>();
+
+        queue.offer(root);
+
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            List<Integer> currentLevel = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                TreeNode currentNode = queue.poll();
+                currentLevel.add(currentNode.val);
+
+                if(i % 2 == 0){
+                    if(currentNode.left != null){
+                        queue.offer(currentNode.left);
+                    }
+                    if(currentNode.right != null){
+                        queue.offer(currentNode.right);
+                    }
+                }else{
+                    if(currentNode.right != null){
+                        queue.offer(currentNode.right);
+                    }
+                    if(currentNode.left != null){
+                        queue.offer(currentNode.left);
+                    }
+                }
+            }
+            result.add(currentLevel);
+        }
+        return result;
+    }
+    public int levelOrderSuccessor(TreeNode root , int val){
+        Queue<TreeNode> queue = new LinkedList<>();
+
+        queue.offer(root);
+
+        while(!queue.isEmpty()){
+            TreeNode current = queue.poll();
+
+            if(current.left != null){
+                queue.offer(current.left);
+            }
+            if(current.right != null){
+                queue.offer(current.right);
+            }
+
+            if(current.val == val){
+                if(!queue.isEmpty()){
+                    return queue.peek().val;
+                }else{
+                    return -1;
+                }
+            }
+        }
+        return -1;
+    }
+
     public int height() {
         return height(root);
     }
