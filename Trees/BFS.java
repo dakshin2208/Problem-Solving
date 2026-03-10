@@ -15,6 +15,28 @@ public class BFS {
 
     TreeNode root;
 
+    public TreeNode SearchInBST(TreeNode root , int val){
+        return helper(root , val);
+    }
+
+    public TreeNode helper(TreeNode root , int val){
+        if(root == null){
+            root = new TreeNode(val);
+            return root;
+        }
+
+        if(val < root.val){
+            root.right = helper(root.right , val);
+        }
+
+        if(val > root.val){
+            root.left = helper(root.left , val);
+        }
+
+        return root;
+
+    }
+
     public List<List<Integer>> zigzagTraversal(TreeNode root){
         List<List<Integer>> result = new ArrayList<>();
 
@@ -115,6 +137,8 @@ public class BFS {
 
         return result;
     }
+
+
 
     public List<Double> averageOfLevels(TreeNode root) {
         List<Double> result = new ArrayList<>();

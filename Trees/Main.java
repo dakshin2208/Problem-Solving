@@ -3,7 +3,7 @@ package Trees;
 public class Main {
     public static void main(String[] args) {
         BFS tree = new BFS();
-        int[] arr = {3,9,20,15,7};
+        int[] arr = {4,2,7,1,3};
         tree.insertAsBt(arr);
         tree.display();
 //        System.out.println(tree.levelOrderTraversal(tree.root));
