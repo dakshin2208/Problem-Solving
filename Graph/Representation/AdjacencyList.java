@@ -45,18 +45,18 @@ public class AdjacencyList {
     }
 
     public static void main(String[] args) {
-        Scanner a = new Scanner(System.in);
-        int v = a.nextInt();
-        AdjacencyList cse = new AdjacencyList(v);
-        int m = a.nextInt();
-        int i;
-        for (i = 0; i < m; i++) {
-            int src = a.nextInt();
-            int dest = a.nextInt();
-            cse.list(src, dest);
+        try (Scanner a = new Scanner(System.in)) {
+            int v = a.nextInt();
+            AdjacencyList cse = new AdjacencyList(v);
+            int m = a.nextInt();
+            int i;
+            for (i = 0; i < m; i++) {
+                int src = a.nextInt();
+                int dest = a.nextInt();
+                cse.list(src, dest);
+            }
+            cse.display();
         }
-        cse.display();
-
     }
 
 }

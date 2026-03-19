@@ -36,9 +36,7 @@ public class AdjacencyMatrix {
     }
     public void dfs(int startVertex) {
         boolean[] visited = new boolean[vertex];
-
         Stack<Integer> stack = new Stack<>();
-
         visited[startVertex] = true;
         stack.push(startVertex);
 
